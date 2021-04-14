@@ -20,7 +20,7 @@ private static final Scanner lukija = new Scanner(System.in);
 			break;
 			
 		}
-		
+		System.out.println("Valitse panos 1€ ja 5€ väliltä");
 	}
 
 }
