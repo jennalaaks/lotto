@@ -20,6 +20,13 @@ private static final Scanner lukija = new Scanner(System.in);
 		
 		int valinta;
 		
+		/** Suoritetaan numeroiden arvonta tai käyttäjä valisee numerot itse.
+		 * kutsutaan metodia käyttäjän valinnan mukaan.
+		 * Jos käyttäjän syöttämä luku on pienempi kuin yksi, tai suurempi kuin kaksi käyttäjä valitsee uuden luvun.
+		 * @case 1 käyttäjä valitsee itse numerot.
+		 * @acase 2 numerot arvotaan.
+		 * @valitseNumerot.myMethod Metodia kutsuttaessa käyttäjä valitsee itse numerot.
+		 * @arvoNumerot.myMethod Metodia kutsuttaessa numerot arvotaan.*/
 		do {
 			System.out.println("1) Valitse numerot 2) Arvo numerot.");
 			valinta = lukija.nextInt();
@@ -27,7 +34,7 @@ private static final Scanner lukija = new Scanner(System.in);
 			switch (valinta) {
 			case 1:
 				System.out.println("Valitsit 1");
-				//valitseNumerot.myMethod();
+				valitseNumerot.myMethod();
 				break;
 			case 2:
 				System.out.println("Valitsit 2");
@@ -35,10 +42,23 @@ private static final Scanner lukija = new Scanner(System.in);
 				break;
 				
 			}
-		} while ((valinta <= 1) && (valinta >= 2));
+		} while (valinta != 1 && valinta != 2);
 		
+		double panos = valitsePanos();
+	}
+	
+	public static double valitsePanos() {
+		/** Käyttäjä valitsee panoksen 1 € ja 5 € väliltä.
+		 * @panos Tallentaa käyttäjän panoksen.
+		 * @return Palauttaa panoksen määrän.
+		 */
 		System.out.println("\n");
 		System.out.println("Valitse panos 1 € ja 5 € väliltä.");
+		double panos = lukija.nextDouble();
+		
+		System.out.println("Panoksesi on " + panos + " €.");
+		
+		return panos;
 	}
 
 }
