@@ -27,7 +27,7 @@ private static final Scanner lukija = new Scanner(System.in);
 			switch (valinta) {
 			case 1:
 				System.out.println("Valitsit 1");
-				valitseNumerot.myMethod();
+				//valitseNumerot.myMethod();
 				break;
 			case 2:
 				System.out.println("Valitsit 2");
@@ -37,6 +37,7 @@ private static final Scanner lukija = new Scanner(System.in);
 			}
 		} while ((valinta <= 1) && (valinta >= 2));
 		
+		System.out.println("\n");
 		System.out.println("Valitse panos 1 € ja 5 € väliltä.");
 	}
 
