@@ -16,6 +16,7 @@ private static final Scanner lukija = new Scanner(System.in);
 		 * */
 		System.out.println("Tervetulo pelaamaan Kaikki tai ei mit‰‰n lottoa!");
 		System.out.println("Valitse 12 numeroa 1-24 numeron v‰lill‰ tai arvo numerot.");
+		System.out.println(" ");
 		
 		int valinta;
 		
@@ -27,6 +28,7 @@ private static final Scanner lukija = new Scanner(System.in);
 		 * @valitseNumerot.myMethod Metodia kutsuttaessa k‰ytt‰j‰ valitsee itse numerot.
 		 * @arvoNumerot.myMethod Metodia kutsuttaessa numerot arvotaan.*/
 		int numerot[] = new int[13];
+		
 		do {
 			System.out.println("1) Valitse numerot 2) Arvo numerot.");
 			valinta = lukija.nextInt();
@@ -41,8 +43,8 @@ private static final Scanner lukija = new Scanner(System.in);
 				numerot = arvoNumerot.myMethod();
 				
 				System.out.println(" ");
-				System.out.println("Arvotut lotto numerosi");
-				for (int i = 1; i < numerot.length; i++)
+				System.out.println("Arvotut lotto numerosi:");
+				for (int i = 0; i < numerot.length; i++)
 					System.out.print(numerot[i] + " ");
 				break;
 				
@@ -54,9 +56,9 @@ private static final Scanner lukija = new Scanner(System.in);
 		
 		int lottonumerot[] = arvoNumerot.myMethod();
 		System.out.println(" ");
-		System.out.println("T‰ss‰ on oikeat numerot");
+		System.out.println("T‰ss‰ on oikeat numerot:");
 		
-		for (int i = 1; i < lottonumerot.length; i++)
+		for (int i = 0; i < lottonumerot.length; i++)
 			System.out.print(lottonumerot[i] + " ");
 
 	}
@@ -70,7 +72,7 @@ private static final Scanner lukija = new Scanner(System.in);
 		System.out.println("Valitse panos 1 Ä ja 5 Ä v‰lilt‰.");
 		double panos = lukija.nextDouble();
 		
-		System.out.println("Panoksesi on " + panos + " Ä.");
+		System.out.println("Panoksesi on " + panos + " Ä");
 		
 		return panos;
 	}

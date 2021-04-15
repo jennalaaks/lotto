@@ -17,20 +17,20 @@ public class arvoNumerot {
 			randomNum = (int) (Math.random() * 25);
 			if (i == 0)
 				i++;
-			
+	
 			/** K‰yd‰‰n taulukko l‰pi, jos taulukossa on olemassa sama numero, arvotaan numero uudelleen*/
 			for (int x = 0; x < i; x++) {
 				if (numerot[x] == randomNum) {
 					randomNum = (int) (Math.random() * 25);
-					x = -1;
+					x = -1;	
 				}
 			}
 			
 		/** Lis‰t‰‰n arvottu luku taulukkoon*/
 		numerot[i] = randomNum;
 		}
-		
 		return numerot;
+		
 		}
 	 	
 	 }
