@@ -2,7 +2,7 @@
 
 public class arvoNumerot {
 	
-	 public static void myMethod() {
+	 public static int[] myMethod() {
 		
 		/** @numerot Tallennetaan taulukkoon 12 numeroa.*/
 		int[] numerot = new int[13];
@@ -32,5 +32,8 @@ public class arvoNumerot {
 		/** Tulostetaan numerot*/
 		for (int i = 1; i < numerot.length; i++)
 			System.out.print(numerot[i] + " ");
+		
+		return numerot;
 		}
+	 	
 	 }
