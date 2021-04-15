@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class lotto {
 
 private static final Scanner lukija = new Scanner(System.in);
-
 	public static void main(String[] args) {
 		
 		/**Ohjeet ja pelin esittely.
@@ -27,7 +26,7 @@ private static final Scanner lukija = new Scanner(System.in);
 		 * @acase 2 numerot arvotaan.
 		 * @valitseNumerot.myMethod Metodia kutsuttaessa k‰ytt‰j‰ valitsee itse numerot.
 		 * @arvoNumerot.myMethod Metodia kutsuttaessa numerot arvotaan.*/
-
+		int numerot[] = new int[13];
 		do {
 			System.out.println("1) Valitse numerot 2) Arvo numerot.");
 			valinta = lukija.nextInt();
@@ -35,21 +34,21 @@ private static final Scanner lukija = new Scanner(System.in);
 			switch (valinta) {
 			case 1:
 				System.out.println("Valitsit 1");
-				int numerot2[] = valitseNumerot.myMethod();
-				// Testataan tuleeko taulukko ohjelmaan, n‰ytt‰‰ toimivan.
-				for (int i = 0; i < numerot2.length; i++)
-					System.out.print(numerot2[i] + " ");
+				numerot = valitseNumerot.myMethod();
 				break;
 			case 2:
 				System.out.println("Valitsit 2");
-				int numerot[] = arvoNumerot.myMethod();
+				numerot = arvoNumerot.myMethod();
 				// Testataan tuleeko taulukko ohjelmaan, n‰ytt‰‰ toimivan.
-				for (int i = 0; i < numerot.length; i++)
-					System.out.print(numerot[i] + " ");
+				//for (int i = 0; i < numerot.length; i++)
+					//System.out.print(numerot[i] + " ");
 				break;
 				
 			}
 		} while (valinta != 1 && valinta != 2);
+		
+		for (int i = 0; i < numerot.length; i++)
+		System.out.print(numerot[i] + " ");
 		
 
 	}
