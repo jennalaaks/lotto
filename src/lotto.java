@@ -1,5 +1,5 @@
 /**Kaikki tai ei mit‰‰n lotto
- * @author Karoliina
+ * @author Karolina
  * @author Jenna
  */
 
@@ -39,17 +39,25 @@ private static final Scanner lukija = new Scanner(System.in);
 			case 2:
 				System.out.println("Valitsit 2");
 				numerot = arvoNumerot.myMethod();
-				// Testataan tuleeko taulukko ohjelmaan, n‰ytt‰‰ toimivan.
-				//for (int i = 0; i < numerot.length; i++)
-					//System.out.print(numerot[i] + " ");
+				
+				System.out.println(" ");
+				System.out.println("Arvotut lotto numerosi");
+				for (int i = 1; i < numerot.length; i++)
+					System.out.print(numerot[i] + " ");
 				break;
 				
 			}
 		} while (valinta != 1 && valinta != 2);
 		
-		for (int i = 0; i < numerot.length; i++)
-		System.out.print(numerot[i] + " ");
+		System.out.println(" ");
+		valitsePanos();
 		
+		int lottonumerot[] = arvoNumerot.myMethod();
+		System.out.println(" ");
+		System.out.println("T‰ss‰ on oikeat numerot");
+		
+		for (int i = 1; i < lottonumerot.length; i++)
+			System.out.print(lottonumerot[i] + " ");
 
 	}
 	
@@ -58,7 +66,7 @@ private static final Scanner lukija = new Scanner(System.in);
 		 * @panos Tallentaa k‰ytt‰j‰n panoksen.
 		 * @return Palauttaa panoksen m‰‰r‰n.
 		 */
-		System.out.println("\n");
+		System.out.println(" ");
 		System.out.println("Valitse panos 1 Ä ja 5 Ä v‰lilt‰.");
 		double panos = lukija.nextDouble();
 		
