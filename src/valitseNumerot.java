@@ -6,7 +6,7 @@ public class valitseNumerot {
 	
 		private static final Scanner lukija = new Scanner(System.in);
 		
-		public static int[] myMethod() {
+		public static int[] lottorivi() {
 			/** Kysyt‰‰n k‰ytt‰j‰lt‰ luvut jotka ovat v‰lilt‰ 1 ja 24,
 			 * jos k‰ytt‰j‰ syˆtt‰‰ numeron joka on jos valittu, tai on pienempi kuin 1 tai suurempi kuin 24,
 			 * kysyt‰‰n k‰ytt‰j‰lt‰ uusi luku.

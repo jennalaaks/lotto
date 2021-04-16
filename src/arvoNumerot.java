@@ -2,10 +2,10 @@
 
 public class arvoNumerot {
 	
-	 public static int[] myMethod() {
+	public static int[] lottorivi() {
 		
 		/** @numerot Tallennetaan taulukkoon 12 numeroa.*/
-		int[] numerot = new int[13];
+		int[] numerot = new int[12];
 		
 		/** @randomNum Luodaan muuttuja.*/
 		int randomNum; 
@@ -13,7 +13,7 @@ public class arvoNumerot {
 		/** Arvotaan satunnaiset luvut
 		 * @randomNum Ohjelma valitsee satunnaisen luvun 1-24 väliltä ja tallentaa sen muuttujaan.
 		 * */
-		for (int i = 0; i < 13; i++) {
+		for (int i = 0; i < 12; i++) {
 			randomNum = (int) (Math.random() * 25);
 			if (i == 0)
 				i++;
@@ -31,6 +31,15 @@ public class arvoNumerot {
 		}
 		return numerot;
 		
+		}
+	
+	public static int arvoOnnenapila() {
+			
+			int onnenapila = (int) (Math.random() * 4);
+			if (onnenapila == 0)
+				onnenapila++;
+			
+			return onnenapila;
 		}
 	 	
 	 }

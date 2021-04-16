@@ -27,7 +27,7 @@ private static final Scanner lukija = new Scanner(System.in);
 		 * @acase 2 numerot arvotaan.
 		 * @valitseNumerot.myMethod Metodia kutsuttaessa käyttäjä valitsee itse numerot.
 		 * @arvoNumerot.myMethod Metodia kutsuttaessa numerot arvotaan.*/
-		int numerot[] = new int[13];
+		int numerot[] = new int[12];
 		
 		do {
 			System.out.println("1) Valitse numerot 2) Arvo numerot.");
@@ -36,11 +36,11 @@ private static final Scanner lukija = new Scanner(System.in);
 			switch (valinta) {
 			case 1:
 				System.out.println("Valitsit 1");
-				numerot = valitseNumerot.myMethod();
+				numerot = valitseNumerot.lottorivi();
 				break;
 			case 2:
 				System.out.println("Valitsit 2");
-				numerot = arvoNumerot.myMethod();
+				numerot = arvoNumerot.lottorivi();
 				
 				System.out.println(" ");
 				System.out.println("Arvotut lotto numerosi:");
@@ -52,21 +52,26 @@ private static final Scanner lukija = new Scanner(System.in);
 		} while (valinta != 1 && valinta != 2);
 		
 		System.out.println(" ");
-		valitsePanos();
+		panos();
+		onnenapila();
 		
-		int lottonumerot[] = arvoNumerot.myMethod();
+		/** Suoritetaan lottorivin arvonta ja tulostetaan oikea lottorivi.
+		 * @lottoNumerot Tallennetaan oikea lottorivi
+		 * */
+		int lottoNumerot[] = arvoNumerot.lottorivi();
+		
 		System.out.println(" ");
-		System.out.println("Tässä on oikeat numerot:");
+		System.out.println("Lottoarvonta suorittu, oikea lottorivi: ");
 		
-		for (int i = 0; i < lottonumerot.length; i++)
-			System.out.print(lottonumerot[i] + " ");
+		for (int i = 0; i < lottoNumerot.length; i++)
+			System.out.print(lottoNumerot[i] + " ");
 
 	}
 	
-	public static double valitsePanos() {
+	public static double panos() {
 		/** Käyttäjä valitsee panoksen 1 € ja 5 € väliltä.
 		 * @panos Tallentaa käyttäjän panoksen.
-		 * @return Palauttaa panoksen määrän.
+		 * @return Palauttaa panoksen.
 		 */
 		System.out.println(" ");
 		System.out.println("Valitse panos 1 € ja 5 € väliltä.");
@@ -75,6 +80,31 @@ private static final Scanner lukija = new Scanner(System.in);
 		System.out.println("Panoksesi on " + panos + " €");
 		
 		return panos;
+	}
+	
+	public static int onnenapila() {
+		/** Arvorvotaan onnenapila.
+		 * Käyttäjä voi halutessaan arpoa apilan uudelleen
+		 * @onnenapila Onnenapila numero
+		 * @arvoUudelleen Käyttäjä valitsee */
+		int onnenapila;
+		
+		int arvoUudelleen;
+		do {
+			onnenapila = arvoNumerot.arvoOnnenapila();
+			System.out.println("Onnenapila: " + onnenapila);
+			
+			System.out.println("Arvo onnenapila uudelleen 1) Ei 2) Kyllä ");
+			arvoUudelleen = lukija.nextInt();
+				if (arvoUudelleen <= 0 || arvoUudelleen > 2) {
+					while (arvoUudelleen == 1 || arvoUudelleen == 2) {
+						System.out.println("Valitse luku 1) tai 2): ");
+						arvoUudelleen = lukija.nextInt();
+					}
+				}
+		} while (arvoUudelleen == 2);
+			
+		return onnenapila;
 	}
 
 }
