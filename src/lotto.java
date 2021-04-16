@@ -51,7 +51,7 @@ private static final Scanner lukija = new Scanner(System.in);
 		} while (valinta != 1 && valinta != 2);
 		
 		/** Kutsutaan metodia panos. Käyttäjä valitsee panoksen */
-		panos();
+		double panos1 = panos();
 		
 		/** Käyttäjä valitsee haluaako onnenapilan. Tulostetaan ohjeet.
 		 * @tuleekoOnnenapila Tallentaa arvon haluaako käyttäjä onnenapilan.
@@ -99,9 +99,21 @@ private static final Scanner lukija = new Scanner(System.in);
 		 * ja voiton suuruus.
 		 */
 		tarkistaNumerot.lottorivinTarkistus(numerot, lottoNumerot, onnenapila);
+		
+		/** hintaLaskuri, laskee loton hinnan. 
+		 * */
+		System.out.print("\n");
+		hintaLaskuri(panos1, onnenapila);
 
 	}
 	
+	public static double hintaLaskuri(double panos1, int onnenapila) {
+		double hintaLaskuri = panos1 + onnenapila;
+		System.out.println("Hinta: "+hintaLaskuri+" €");
+		return hintaLaskuri;
+		
+	}
+
 	public static double panos() {
 		/** Käyttäjä valitsee panoksen 1 € ja 5 € väliltä.
 		 * @panos Tallentaa käyttäjän panoksen.
@@ -145,5 +157,4 @@ private static final Scanner lukija = new Scanner(System.in);
 			
 		return onnenapila;
 	}
-
 }
