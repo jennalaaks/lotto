@@ -86,7 +86,7 @@ private static final Scanner lukija = new Scanner(System.in);
 		/** Arvorvotaan onnenapila.
 		 * Käyttäjä voi halutessaan arpoa apilan uudelleen
 		 * @onnenapila Onnenapila numero
-		 * @arvoUudelleen Käyttäjä valitsee */
+		 * @arvoUudelleen Käyttäjä valitsee arvotaanko luku uudelleen. */
 		int onnenapila;
 		
 		int arvoUudelleen;
@@ -96,11 +96,9 @@ private static final Scanner lukija = new Scanner(System.in);
 			
 			System.out.println("Arvo onnenapila uudelleen 1) Ei 2) Kyllä ");
 			arvoUudelleen = lukija.nextInt();
-				if (arvoUudelleen <= 0 || arvoUudelleen > 2) {
-					while (arvoUudelleen == 1 || arvoUudelleen == 2) {
-						System.out.println("Valitse luku 1) tai 2): ");
-						arvoUudelleen = lukija.nextInt();
-					}
+				while (arvoUudelleen < 1 || arvoUudelleen > 2) {
+					System.out.println("Valitse luku 1) Pidä onnenapila tai 2) Arvo uudelleen: ");
+					arvoUudelleen = lukija.nextInt();
 				}
 		} while (arvoUudelleen == 2);
 			

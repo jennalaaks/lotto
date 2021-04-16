@@ -15,8 +15,8 @@ public class arvoNumerot {
 		 * */
 		for (int i = 0; i < 12; i++) {
 			randomNum = (int) (Math.random() * 25);
-			if (i == 0)
-				i++;
+			if (randomNum == 0)
+				randomNum++;
 	
 			/** Käydään taulukko läpi, jos taulukossa on olemassa sama numero, arvotaan numero uudelleen*/
 			for (int x = 0; x < i; x++) {
