@@ -21,7 +21,7 @@ private static final Scanner lukija = new Scanner(System.in);
 		int valinta;
 		
 		/** Suoritetaan numeroiden arvonta tai käyttäjä valisee numerot itse.
-		 * kutsutaan metodia käyttäjän valinnan mukaan.
+		 * kutsutaan oikea metodi käyttäjän valinnan mukaan.
 		 * Jos käyttäjän syöttämä luku on pienempi kuin yksi, tai suurempi kuin kaksi käyttäjä valitsee uuden luvun.
 		 * @case 1 käyttäjä valitsee itse numerot.
 		 * @acase 2 numerot arvotaan.
@@ -36,40 +36,68 @@ private static final Scanner lukija = new Scanner(System.in);
 			switch (valinta) {
 			case 1:
 				numerot = valitseNumerot.lottorivi();
-				
 				break;
 			case 2:
 				numerot = arvoNumerot.lottorivi();	
-				System.out.println("Arvotut lotto numerosi:");
+				System.out.println("Arvotut lottonumerosi:");
 				
+				/** Tulostetaan arvottu lottorivi */
 				for (int i = 0; i < numerot.length; i++)
 					System.out.print(numerot[i] + " ");
 				
 				System.out.print("\n");
-				
 				break;
-				
 			}
 		} while (valinta != 1 && valinta != 2);
 		
+		/** Kutsutaan metodia panos. Käyttäjä valitsee panoksen */
 		panos();
+		
+		/** Käyttäjä valitsee haluaako onnenapilan. Tulostetaan ohjeet.
+		 * @tuleekoOnnenapila Tallentaa arvon haluaako käyttäjä onnenapilan.
+		 * @onnenapila Tallentaa onnenapilan arvon, oletusarvo 0.
+		 */
 		System.out.print("\n");
+		System.out.println("Haluatko onnenapilan?");
+		System.out.println("Oikea onnennumero nelinkertaistaa voittosi.");
+		System.out.println("Onnenapila maksaa panoksen suuruisen lisämaksun.");
+		System.out.print("\n");
+		int tuleekoOnnenapila;
+		int onnenapila = 0;
 		
-		int onnenapila = onnenapila();
+		/** Jos käyttäjä valitsee 1 pienemmän numeron tai 2 suuremman numeron,
+		 * toistetaan kysymystä kunnes käyttäjä syöttää numeron 1 tai 2.
+		 * Jos käyttäjä valisee numeron 1, eli onnenapila valitaan, kutsutaan metodia onnenapila.
+		 * Jos käyttäjä valitsee numeron 2, eli onnenapilaa ei valita, onnenapilan arvoksi jää 0.
+		 */
+		do {
+			System.out.println("1) Valitse onnenapila 2) En onnenapilaa.");
+			tuleekoOnnenapila = lukija.nextInt();
+		} while(tuleekoOnnenapila < 1 || tuleekoOnnenapila > 2);
 		
-		/** Suoritetaan lottorivin arvonta ja tulostetaan oikea lottorivi.
-		 * @lottoNumerot Tallennetaan oikea lottorivi
+		if (tuleekoOnnenapila == 1) {
+			onnenapila = onnenapila();
+		}
+		
+		/** Suoritetaan lottorivin arvonta.
+		 * @lottoNumerot Kutsutaan metodia arvoNumerot.lottorivi ja tallennetaan oikea lottorivi.
 		 * */
 		int lottoNumerot[] = arvoNumerot.lottorivi();
 		
 		System.out.println(" ");
-		System.out.println("Lottoarvonta suorittu, oikea lottorivi: ");
+		System.out.println("Lottoarvonta suoritettu, oikea lottorivi: ");
 		
+		/** Tulostetaan lottorivi */
 		for (int i = 0; i < lottoNumerot.length; i++)
 			System.out.print(lottoNumerot[i] + " ");
 		
 		System.out.print("\n");
 		System.out.print("\n");
+		
+		/** Kutsutaan metodia tarkistaNumerot.lottorivinTarkistus, jossa
+		 * tarkistetaan kuinka monta numeroa käyttäjällä meni oikein tai väärin
+		 * ja voiton suuruus.
+		 */
 		tarkistaNumerot.lottorivinTarkistus(numerot, lottoNumerot, onnenapila);
 
 	}
@@ -79,9 +107,12 @@ private static final Scanner lukija = new Scanner(System.in);
 		 * @panos Tallentaa käyttäjän panoksen.
 		 * @return Palauttaa panoksen.
 		 */
-		System.out.println(" ");
-		System.out.println("Valitse panos 1 € ja 5 € väliltä.");
-		double panos = lukija.nextDouble();
+		double panos;
+		System.out.print("\n");
+		do {
+			System.out.println("Valitse panos 1 € - 5 € väliltä.");
+			panos = lukija.nextDouble();
+		} while (panos < 1 || panos > 5);
 		
 		System.out.println("Panoksesi on " + panos + " €");
 		
@@ -89,14 +120,14 @@ private static final Scanner lukija = new Scanner(System.in);
 	}
 	
 	public static int onnenapila() {
-		/** Arvorvotaan onnenapila.
+		/** Arvotaan onnenapila.
 		 * Käyttäjä voi halutessaan arpoa apilan uudelleen
 		 * @onnenapila Onnenapila numero
 		 * @arvoUudelleen Käyttäjä valitsee arvotaanko luku uudelleen.
 		 * @return Palauttaa onnenapilan arvon. */
 		int onnenapila;
-		
 		int arvoUudelleen;
+		
 		do {
 			onnenapila = arvoNumerot.arvoOnnenapila();
 			System.out.println("Onnenapila: " + onnenapila);
