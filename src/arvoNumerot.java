@@ -34,12 +34,15 @@ public class arvoNumerot {
 		}
 	
 	public static int arvoOnnenapila() {
-			
-			int onnenapila = (int) (Math.random() * 4);
-			if (onnenapila == 0)
-				onnenapila++;
-			
-			return onnenapila;
-		}
+		/** Arvotaan onnenapila 1 ja 4 väliltä.
+		* @onnenapila Tallentaa numeron muuttujaan.
+		* @return Palauttaa onnenapilan arvon.
+		*/
+		int onnenapila = (int) (Math.random() * 4);
+		if (onnenapila == 0)
+			onnenapila++;
+		
+		return onnenapila;
+	}
 	 	
-	 }
+}

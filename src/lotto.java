@@ -35,25 +35,27 @@ private static final Scanner lukija = new Scanner(System.in);
 			
 			switch (valinta) {
 			case 1:
-				System.out.println("Valitsit 1");
 				numerot = valitseNumerot.lottorivi();
+				
 				break;
 			case 2:
-				System.out.println("Valitsit 2");
-				numerot = arvoNumerot.lottorivi();
-				
-				System.out.println(" ");
+				numerot = arvoNumerot.lottorivi();	
 				System.out.println("Arvotut lotto numerosi:");
+				
 				for (int i = 0; i < numerot.length; i++)
 					System.out.print(numerot[i] + " ");
+				
+				System.out.print("\n");
+				
 				break;
 				
 			}
 		} while (valinta != 1 && valinta != 2);
 		
-		System.out.println(" ");
 		panos();
-		onnenapila();
+		System.out.print("\n");
+		
+		int onnenapila = onnenapila();
 		
 		/** Suoritetaan lottorivin arvonta ja tulostetaan oikea lottorivi.
 		 * @lottoNumerot Tallennetaan oikea lottorivi
@@ -65,6 +67,10 @@ private static final Scanner lukija = new Scanner(System.in);
 		
 		for (int i = 0; i < lottoNumerot.length; i++)
 			System.out.print(lottoNumerot[i] + " ");
+		
+		System.out.print("\n");
+		System.out.print("\n");
+		tarkistaNumerot.lottorivinTarkistus(numerot, lottoNumerot, onnenapila);
 
 	}
 	
@@ -86,7 +92,8 @@ private static final Scanner lukija = new Scanner(System.in);
 		/** Arvorvotaan onnenapila.
 		 * Käyttäjä voi halutessaan arpoa apilan uudelleen
 		 * @onnenapila Onnenapila numero
-		 * @arvoUudelleen Käyttäjä valitsee arvotaanko luku uudelleen. */
+		 * @arvoUudelleen Käyttäjä valitsee arvotaanko luku uudelleen.
+		 * @return Palauttaa onnenapilan arvon. */
 		int onnenapila;
 		
 		int arvoUudelleen;
@@ -94,8 +101,11 @@ private static final Scanner lukija = new Scanner(System.in);
 			onnenapila = arvoNumerot.arvoOnnenapila();
 			System.out.println("Onnenapila: " + onnenapila);
 			
-			System.out.println("Arvo onnenapila uudelleen 1) Ei 2) Kyllä ");
+			System.out.println("Arvo onnenapila uudelleen 1) Ei 2) Kyllä.");
 			arvoUudelleen = lukija.nextInt();
+				/** Jos käyttäjä syöttää numeron joka on pienempi kun 1 tai suurempi kun 2,
+				 * pyydetään käyttäjää syöttämään uusi luku.
+				 */
 				while (arvoUudelleen < 1 || arvoUudelleen > 2) {
 					System.out.println("Valitse luku 1) Pidä onnenapila tai 2) Arvo uudelleen: ");
 					arvoUudelleen = lukija.nextInt();

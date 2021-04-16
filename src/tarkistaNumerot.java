@@ -1,13 +1,19 @@
+/** Ohjelma tarkistaa kuinka monta numeroa on oikein/väärin.*/
 public class tarkistaNumerot  {  
-	public static void main(String args[])  
-	{  
-		int[] a=numbers();           //obtain the array  
-		for (int i = 0; i < a.length; i++) //for loop to print the array  
-			System.out.print( a[i]+ " ");     
-		}  
-	public static int[] numbers()  
-	{  
-		int[] arr={5,6,7,8,9};  //initializing array  
-		return arr;  
-		}  
-	}  
+	public static void lottorivinTarkistus(int[] numerot, int[] lottoNumerot, int onnenapila) {
+		System.out.println("Täällä tarkistetaan lottorivi!");
+		System.out.println("Toimii!");
+		for (int i = 0; i < lottoNumerot.length; i++)
+			System.out.print(lottoNumerot[i] + " ");
+		System.out.print("\n");
+		System.out.println("Toimii!");
+		for (int i = 0; i < lottoNumerot.length; i++)
+			System.out.print(numerot[i] + " ");
+		System.out.print("\n");
+		System.out.println("Toimii!");
+		System.out.println(onnenapila);
+		
+		// Kaikki taulukoiden arvot näyttävät tulevan hyvin tänne :)
+		
+	}
+}
