@@ -63,7 +63,7 @@ private static final Scanner lukija = new Scanner(System.in);
 		System.out.println("Onnenapila maksaa panoksen suuruisen lisämaksun.");
 		System.out.print("\n");
 		int tuleekoOnnenapila;
-		int onnenapila = 0;
+		double onnenapila = 1;
 		
 		/** Jos käyttäjä valitsee 1 pienemmän numeron tai 2 suuremman numeron,
 		 * toistetaan kysymystä kunnes käyttäjä syöttää numeron 1 tai 2.
@@ -103,14 +103,26 @@ private static final Scanner lukija = new Scanner(System.in);
 		/** hintaLaskuri, laskee loton hinnan. 
 		 * */
 		System.out.print("\n");
-		hintaLaskuri(panos1, onnenapila);
+		hintaLaskuri(panos1, onnenapila, tuleekoOnnenapila);
 
 	}
 	
-	public static double hintaLaskuri(double panos1, int onnenapila) {
-		double hintaLaskuri = panos1 + onnenapila;
-		System.out.println("Hinta: "+hintaLaskuri+" €");
-		return hintaLaskuri;
+	public static double hintaLaskuri(double panos1, double onnenapila, int tuleekoOnnenapila) {
+		
+		do {
+			
+		} while(tuleekoOnnenapila < 1 || tuleekoOnnenapila > 2);
+		
+		if (tuleekoOnnenapila == 1) {
+			double hintaLaskuriOnnenapilalla = panos1 * onnenapila; /** Laskee hinnan panoksella ja onneapilalla */
+			System.out.println("Hinta: "+hintaLaskuriOnnenapilalla+" €");
+		}
+		else {
+			double hintaLaskuriPanoksella = panos1; /** Laskee hinna vain panoksella */
+			System.out.println("Hinta: "+hintaLaskuriPanoksella+" €");
+		}
+		
+		return tuleekoOnnenapila;
 		
 	}
 

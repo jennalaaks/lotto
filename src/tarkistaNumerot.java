@@ -1,6 +1,6 @@
 /** Ohjelma tarkistaa kuinka monta numeroa on oikein/v‰‰rin.*/
 public class tarkistaNumerot  {  
-	public static void lottorivinTarkistus(int[] numerot, int[] lottoNumerot, int onnenapila) {
+	public static void lottorivinTarkistus(int[] numerot, int[] lottoNumerot, double onnenapila) {
 		System.out.println("T‰‰ll‰ tarkistetaan lottorivi!");
 		
 		// Kaikki taulukoiden arvot n‰ytt‰v‰t tulevan hyvin t‰nne :)
