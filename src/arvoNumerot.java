@@ -1,3 +1,4 @@
+
 /** Ohjelma arpoo numerot.*/
 
 public class arvoNumerot {
@@ -27,8 +28,8 @@ public class arvoNumerot {
 			}
 			
 		/** Lis‰t‰‰n arvottu luku taulukkoon*/
-		numerot[i] = randomNum;
-		}
+				numerot[i] = randomNum;
+				}
 		return numerot;
 		
 		}

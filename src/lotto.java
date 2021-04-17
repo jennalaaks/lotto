@@ -38,7 +38,8 @@ private static final Scanner lukija = new Scanner(System.in);
 				numerot = valitseNumerot.lottorivi();
 				break;
 			case 2:
-				numerot = arvoNumerot.lottorivi();	
+				numerot = arvoNumerot.lottorivi();
+				
 				System.out.println("Arvotut lottonumerosi:");
 				
 				/** Tulostetaan arvottu lottorivi */
@@ -101,8 +102,7 @@ private static final Scanner lukija = new Scanner(System.in);
 		 */
 		tarkistaNumerot.lottorivinTarkistus(numerot, lottoNumerot, onnenapila);
 		
-		/** hintaLaskuri, laskee loton hinnan. 
-		 * */
+		/** hintaLaskuri, laskee loton hinnan. */
 		System.out.print("\n");
 		hintaLaskuri(panos1, onnenapilaKerroin, tuleekoOnnenapila);
 
