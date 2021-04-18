@@ -32,17 +32,17 @@ public class tarkistaNumerot  {
 			System.out.println("Sinulla on "+oikein+" numeroa oikein.");
 			
 			if(oikein == 0 || oikein == 12) {
-				System.out.println("Voitit: " + "kaikki €");
+				System.out.println("Voitit: " + "125 000 €");
 			} else if (oikein == 1 || oikein == 11) {
-				System.out.println("Voitit: " + "2 €");
+				System.out.println("Voitit: " + "250 €");
 			} else if (oikein == 2 || oikein == 10) {
-				System.out.println("Voitit: " + "4 €");
+				System.out.println("Voitit: " + "25 €");
 			} else if (oikein == 3 || oikein == 9) {
-				System.out.println("Voitit: " + "6 €");
+				System.out.println("Voitit: " + "5 €");
 			} else if (oikein == 4 || oikein == 8) {
-				System.out.println("Voitit: " + "8 €");
+				System.out.println("Voitit: " +oikein*1 + " €");
 			} else {
-				System.out.println("Voitit: " + "10 €");
+				System.out.println("Voitit: " + "0 €");
 			
 			
 			
