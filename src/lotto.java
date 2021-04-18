@@ -81,6 +81,10 @@ private static final Scanner lukija = new Scanner(System.in);
 			onnenapila = onnenapila();
 		}
 		
+		/** hintaLaskuri, laskee loton hinnan. */
+		System.out.print("\n");
+		hintaLaskuri(panos1, onnenapilaKerroin, tuleekoOnnenapila);
+		
 		/** Suoritetaan lottorivin arvonta.
 		 * @lottoNumerot Kutsutaan metodia arvoNumerot.lottorivi ja tallennetaan oikea lottorivi.
 		 * */
@@ -93,18 +97,19 @@ private static final Scanner lukija = new Scanner(System.in);
 		for (int i = 0; i < lottoNumerot.length; i++)
 			System.out.print(lottoNumerot[i] + " ");
 		
-		System.out.print("\n");
-		System.out.print("\n");
+		int OnnenApilanArvonta = arvoNumerot.arvoOnnenapila();
+		
+		System.out.println("\n");
+		System.out.println("Onnenapilan oikea numero: ");
+		
+		System.out.println(" ");
+		System.out.println(" ");
 		
 		/** Kutsutaan metodia tarkistaNumerot.lottorivinTarkistus, jossa
 		 * tarkistetaan kuinka monta numeroa käyttäjällä meni oikein tai väärin
 		 * ja voiton suuruus.
 		 */
-		tarkistaNumerot.lottorivinTarkistus(numerot, lottoNumerot, onnenapila);
-		
-		/** hintaLaskuri, laskee loton hinnan. */
-		System.out.print("\n");
-		hintaLaskuri(panos1, onnenapilaKerroin, tuleekoOnnenapila);
+		tarkistaNumerot.lottorivinTarkistus(numerot, lottoNumerot, onnenapila, onnenapilaKerroin);
 
 	}
 	
@@ -115,11 +120,11 @@ private static final Scanner lukija = new Scanner(System.in);
 		} while(tuleekoOnnenapila < 1 || tuleekoOnnenapila > 2);
 		if (tuleekoOnnenapila == 1) {
 			double hintaLaskuriOnnenapilalla = panos1 * onnenapilaKerroin; /** Laskee hinnan panoksella ja onneapilalla */
-			System.out.println("Hinta: "+hintaLaskuriOnnenapilalla+" €");
+			System.out.println("Loton hinta: "+hintaLaskuriOnnenapilalla+" €");
 		}
 		else {
 			double hintaLaskuriPanoksella = panos1; /** Laskee hinna vain panoksella */
-			System.out.println("Hinta: "+hintaLaskuriPanoksella+" €");
+			System.out.println("Loton hinta: "+hintaLaskuriPanoksella+" €");
 		}
 		
 		return tuleekoOnnenapila;
