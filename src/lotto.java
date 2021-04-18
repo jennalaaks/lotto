@@ -102,6 +102,7 @@ private static final Scanner lukija = new Scanner(System.in);
 		System.out.println("\n");
 		System.out.println("Onnenapilan oikea numero: ");
 		
+		
 		System.out.println(" ");
 		System.out.println(" ");
 		
@@ -109,7 +110,7 @@ private static final Scanner lukija = new Scanner(System.in);
 		 * tarkistetaan kuinka monta numeroa k‰ytt‰j‰ll‰ meni oikein tai v‰‰rin
 		 * ja voiton suuruus.
 		 */
-		tarkistaNumerot.lottorivinTarkistus(numerot, lottoNumerot, onnenapila, onnenapilaKerroin);
+		tarkistaNumerot.lottorivinTarkistus(numerot, lottoNumerot, onnenapila, OnnenApilanArvonta);
 
 	}
 	

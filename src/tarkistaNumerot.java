@@ -1,6 +1,6 @@
 /** Ohjelma tarkistaa kuinka monta numeroa on oikein/v‰‰rin.*/
 public class tarkistaNumerot  {  
-	public static void lottorivinTarkistus(int[] numerot, int[] lottoNumerot, int onnenapila, int tuleekoOnnenapila) {
+	public static void lottorivinTarkistus(int[] numerot, int[] lottoNumerot, int onnenapila, int onnenApilanArvonta) {
 		System.out.println("T‰‰ll‰ tarkistetaan lottorivi!");
 		
 		// Kaikki taulukoiden arvot n‰ytt‰v‰t tulevan hyvin t‰nne :)
@@ -15,6 +15,7 @@ public class tarkistaNumerot  {
 			System.out.print("\n");
 			
 			int oikein = 0;
+			
 			numerot.clone(); /** Pelaajan numerot */
 			lottoNumerot.clone(); /** Oikeat numerot*/
 
@@ -23,12 +24,28 @@ public class tarkistaNumerot  {
 			    for (int j = 0; j < numerot.length; j++) {
 			        if (lottoNumerot[i] == numerot[j]) {
 			            oikein++;
-			            break; 
+			            break;
 			        }
 			    }
 			}
 			System.out.print("\n");
 			System.out.println("Sinulla on "+oikein+" numeroa oikein.");
-			System.out.println("Voitit: " + " Ä");
-		}
+			
+			if(oikein == 0 || oikein == 12) {
+				System.out.println("Voitit: " + "kaikki Ä");
+			} else if (oikein == 1 || oikein == 11) {
+				System.out.println("Voitit: " + "2 Ä");
+			} else if (oikein == 2 || oikein == 10) {
+				System.out.println("Voitit: " + "4 Ä");
+			} else if (oikein == 3 || oikein == 9) {
+				System.out.println("Voitit: " + "6 Ä");
+			} else if (oikein == 4 || oikein == 8) {
+				System.out.println("Voitit: " + "8 Ä");
+			} else {
+				System.out.println("Voitit: " + "10 Ä");
+			
+			
+			
+	}
+}
 }
