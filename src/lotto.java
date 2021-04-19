@@ -4,6 +4,7 @@
  */
 
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class lotto {
 
@@ -41,7 +42,7 @@ private static final Scanner lukija = new Scanner(System.in);
 				numerot = arvoNumerot.lottorivi();
 				
 				System.out.println("Arvotut lottonumerosi:");
-				
+				Arrays.sort(numerot);
 				/** Tulostetaan arvottu lottorivi */
 				for (int i = 0; i < numerot.length; i++)
 					System.out.print(numerot[i] + " ");
@@ -73,7 +74,7 @@ private static final Scanner lukija = new Scanner(System.in);
 		 * Jos käyttäjä valitsee numeron 2, eli onnenapilaa ei valita, onnenapilan arvoksi jää 0.
 		 */
 		do {
-			System.out.println("1) Valitse onnenapila 2) En onnenapilaa.");
+			System.out.println("1) Valitse onnenapila 2) Ei onnenapilaa.");
 			tuleekoOnnenapila = lukija.nextInt();
 		} while(tuleekoOnnenapila < 1 || tuleekoOnnenapila > 2);
 		
@@ -94,23 +95,24 @@ private static final Scanner lukija = new Scanner(System.in);
 		System.out.println("Lottoarvonta suoritettu, oikea lottorivi: ");
 		
 		/** Tulostetaan lottorivi */
+		Arrays.sort(lottoNumerot);
 		for (int i = 0; i < lottoNumerot.length; i++)
 			System.out.print(lottoNumerot[i] + " ");
 		
-		int OnnenApilanArvonta = arvoNumerot.arvoOnnenapila();
+		int oikeaOnnenapila = arvoNumerot.arvoOnnenapila();
+		if (onnenapila != 0) {
+		System.out.print("+ " + oikeaOnnenapila);
+		}
 		
-		System.out.println("\n");
-		System.out.println("Onnenapilan oikea numero: ");
+		int onnenapilanArvonta = arvoNumerot.arvoOnnenapila();
 		
-		
-		System.out.println(" ");
-		System.out.println(" ");
+		System.out.print("\n");
 		
 		/** Kutsutaan metodia tarkistaNumerot.lottorivinTarkistus, jossa
 		 * tarkistetaan kuinka monta numeroa käyttäjällä meni oikein tai väärin
 		 * ja voiton suuruus.
 		 */
-		tarkistaNumerot.lottorivinTarkistus(numerot, lottoNumerot, onnenapila, OnnenApilanArvonta);
+		tarkistaNumerot.lottorivinTarkistus(numerot, lottoNumerot, onnenapila, onnenapilanArvonta, oikeaOnnenapila);
 
 	}
 	
@@ -125,9 +127,9 @@ private static final Scanner lukija = new Scanner(System.in);
 		}
 		else {
 			double hintaLaskuriPanoksella = panos1; /** Laskee hinna vain panoksella */
-			System.out.println("Loton hinta: "+hintaLaskuriPanoksella+" €");
+			System.out.println("Loton hinta: " + hintaLaskuriPanoksella + " €");
 		}
-		
+		System.out.print("\n");
 		return tuleekoOnnenapila;
 		
 	}

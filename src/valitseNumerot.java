@@ -13,10 +13,10 @@ public class valitseNumerot {
 			 * @numerot Tallennetaan taulukkoon käyttäjän valitsemat numerot.
 			 * @numero Luodaan muuttuja johon tallennetaan numero.
 			 */
-			int[] numerot = new int[13];
+			int[] numerot = new int[12];
 			int numero;
 			
-			for (int i = 0; i < 13; i++) {
+			for (int i = 0; i < 12; i++) {
 				do {
 				System.out.println("Syötä " + (i + 1) + ". numero: ");
 				
