@@ -29,8 +29,7 @@ public class tarkistaNumerot {
 				for (int j = 0; j < numerot.length; j++) {
 					if (lottoNumerot[i] == numerot[j]) {
 						oikein++;
-						;
-					} break;
+					}
 				}
 			}
 			System.out.print("\n");

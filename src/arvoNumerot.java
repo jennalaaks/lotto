@@ -15,7 +15,7 @@ public class arvoNumerot {
 		
 		arvontaKierre:
 		while (hyvaksyttyjaLukuja < 12) {
-			int arvottu = (int) (Math.random() * 25) + 1;
+			int arvottu = (int) (Math.random() * 24) + 1;
 			
 			/** Tarkistetaan onko luku jo taulukossa. */
 			for (int i = 0; i < arvotut.length; i++) {
