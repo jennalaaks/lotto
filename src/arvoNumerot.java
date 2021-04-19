@@ -16,7 +16,10 @@ public class arvoNumerot {
 		 * */
 		for (int i = 0; i < 12; i++) {
 			randomNum = (int) (Math.random() * 25);
-	
+			
+			if (randomNum == 0)
+				randomNum++;
+			
 			/** Käydään taulukko läpi, jos taulukossa on olemassa sama numero, arvotaan numero uudelleen*/
 			for (int x = 0; x < i; x++) {
 				if (numerot[x] == randomNum) {
@@ -24,9 +27,6 @@ public class arvoNumerot {
 					x = -1;	
 				}
 			}
-			
-			if (randomNum == 0)
-				randomNum++;
 			
 		/** Lisätään arvottu luku taulukkoon*/
 				numerot[i] = randomNum;
