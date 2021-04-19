@@ -4,7 +4,7 @@ public class tarkistaNumerot {
 	public static void lottorivinTarkistus(int[] numerot, int[] lottoNumerot, int onnenapila, int onnenapilanArvonta, int oikeaOnnenapila) {
 		
 		System.out.print("\n");
-		System.out.println("Arvotut lottonumerosi ovat:");
+		System.out.println("Pelaamasi lottorivi: ");
 		
 		/** Tulostetaan arvottu lottorivi */
 		for (int i = 0; i < numerot.length; i++)

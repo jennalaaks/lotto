@@ -1,37 +1,36 @@
-
 /** Ohjelma arpoo numerot.*/
 
 public class arvoNumerot {
 	
 	public static int[] lottorivi() {
-		
-		/** @numerot Tallennetaan taulukkoon 12 numeroa.*/
-		int[] numerot = new int[12];
-		
-		/** @randomNum Luodaan muuttuja.*/
-		int randomNum; 
-		
-		/** Arvotaan satunnaiset luvut
+		/** Arvotaan satunnaiset luvut. 
+		 * @randomNum Luodaan muuttuja.*
+		 * @hyvaksyttyjaLukuja Tallentaa lukujen m‰‰r‰n.
 		 * @randomNum Ohjelma valitsee satunnaisen luvun 1-24 v‰lilt‰ ja tallentaa sen muuttujaan.
+		 * @arvotut Tallennetaan taulukkoon 12 numeroa.
 		 * */
-		for (int i = 0; i < 12; i++) {
-			randomNum = (int) (Math.random() * 25);
+		
+		int[] arvotut = new int[12];
+		int hyvaksyttyjaLukuja = 0;
+		
+		arvontaKierre:
+		while (hyvaksyttyjaLukuja < 12) {
+			int arvottu = (int) (Math.random() * 25) + 1;
 			
-			if (randomNum == 0)
-				randomNum++;
-			
-			/** K‰yd‰‰n taulukko l‰pi, jos taulukossa on olemassa sama numero, arvotaan numero uudelleen*/
-			for (int x = 0; x < i; x++) {
-				if (numerot[x] == randomNum) {
-					randomNum = (int) (Math.random() * 25);
-					x = -1;	
+			/** Tarkistetaan onko luku jo taulukossa. */
+			for (int i = 0; i < arvotut.length; i++) {
+				if (arvotut[i] == arvottu) {
+					/**Continue arvontaKierre jatkaa arvontaKierre-silmukkaa.*/
+					continue arvontaKierre;
 				}
 			}
-			
 		/** Lis‰t‰‰n arvottu luku taulukkoon*/
-				numerot[i] = randomNum;
-				}
-		return numerot;
+		arvotut[hyvaksyttyjaLukuja] = arvottu;
+		hyvaksyttyjaLukuja++;
+		}
+		
+		/** @return Palauttaa taulukon.*/
+		return arvotut;
 		
 		}
 	
