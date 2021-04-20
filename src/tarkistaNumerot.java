@@ -50,6 +50,10 @@ public class tarkistaNumerot {
 					System.out.print(i + " ");
 				}
 			}
+			if (onnenapila == oikeaOnnenapila) {
+				System.out.print("+ " + onnenapila);
+			}
+			
 			System.out.print("\n");
 			
 			if(oikein == 0 || oikein == 12) {
