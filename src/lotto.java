@@ -111,7 +111,7 @@ private static final Scanner lukija = new Scanner(System.in);
 		 * tarkistetaan kuinka monta numeroa k‰ytt‰j‰ll‰ meni oikein tai v‰‰rin
 		 * ja voiton suuruus.
 		 */
-		tarkistaNumerot.lottorivinTarkistus(numerot, lottoNumerot, onnenapila, onnenapilanArvonta, oikeaOnnenapila);
+		tarkistaNumerot.lottorivinTarkistus(numerot, lottoNumerot, onnenapila, oikeaOnnenapila, panos);
 
 	}
 	
@@ -128,7 +128,8 @@ private static final Scanner lukija = new Scanner(System.in);
 			double hintaLaskuriPanoksella = panos; /** Laskee hinna vain panoksella */
 			System.out.println("Loton hinta: " + hintaLaskuriPanoksella + " Ä");
 		}
-		System.out.print("\n");
+		System.out.println("_________________________________________________");
+		
 		return tuleekoOnnenapila;
 		
 	}
