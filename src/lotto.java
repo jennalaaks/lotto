@@ -6,14 +6,16 @@
 import java.util.Scanner;
 import java.io.PrintWriter;
 import java.util.Arrays;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 
 public class lotto {
 
 private static final Scanner lukija = new Scanner(System.in);
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) {
 		
 		/**Ohjeet ja pelin esittely.
 		 * K‰ytt‰j‰ valitsee arvotaanko numerot vai valitseeko k‰ytt‰j‰ itse.
@@ -120,33 +122,59 @@ private static final Scanner lukija = new Scanner(System.in);
 		 */
 		double voittosumma = tarkistaNumerot.lottorivinTarkistus(numerot, lottoNumerot, onnenapila, oikeaOnnenapila, panos);
 		
-		kuitti(hinta, voittosumma);
+		try {
+			kuitti(hinta, voittosumma);
+		} catch (IOException e) {
+			System.out.println("Tapahtui virhe " +e);
+		}
 		
-		System.out.println("\n");
-		System.out.println("Kuittisi tulostettu tiedostoon.");
+		System.out.println("_________________________________________________");
+		
+		try {
+		tulostakuitti();
+		} catch (FileNotFoundException f) {
+			System.out.println("Tapahtui virhe " +f);
+		}
+		
+		
 
 	}
 	
-	private static void kuitti(double hinta, double voittosumma) throws FileNotFoundException {
+	private static void tulostakuitti() throws FileNotFoundException {
+		//Luodaan lukija-olio, jonka toimet kohdistetaan tiedostoon "tiedosto.txt"
+				final Scanner lukija = new Scanner(new File("kuitti.txt"));
+				//luodaan tyhj‰ merkkijono
+				String rivi = "";
+				while (lukija.hasNext()) {
+					//Luetaan talteen yksi tiedoston rivi
+					rivi = lukija.nextLine();
+					//Tulostetaan n‰ytˆlle tiedostosta luettu rivi
+					System.out.print("\n");
+					System.out.println(rivi);
+				}//while
+				//suljetaan tiedosto
+				lukija.close();
+		
+	}
+
+	private static void kuitti(double hinta, double voittosumma) throws IOException {
 
 		/** Tulostetaan kuitti tiedostoon. 
 		 * @PrintWriter Luodaan kirjoittaja-olio, joka yhdistet‰‰n tiedostoon "kuitti.txt.
 		 * @DateTimeFormatter M‰‰ritt‰‰ miss‰ muodossa tulostetaan p‰iv‰m‰‰r‰.
 		 * @LocalDateTime Tallentaa t‰m‰n hetkisen p‰iv‰m‰‰r‰n ja kellonajan."*/
+		
 		PrintWriter kirjoittaja = new PrintWriter("kuitti.txt");
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		LocalDateTime now = LocalDateTime.now();
 		
-		/** Kirjoittaja kirjoittaa/tulostaa merkkijonon mj sisallon tiedostoon "tiedosto.txt."*/
 		kirjoittaja.println("KUITTI");
 		kirjoittaja.println("Kaikki tai ei mit‰‰n lotto");
 		kirjoittaja.println("P‰iv‰m‰‰r‰ ja aika: " + dtf.format(now));
-		kirjoittaja.print("\n");
 		kirjoittaja.println("Voitot: " + voittosumma + " Ä");
 		kirjoittaja.println("Hinta yhteens‰: " + hinta + " Ä");
 		/** Suljetaan tiedoto. */
 		kirjoittaja.close();
-		
 	}
 
 	public static double hintaLaskuri(double panos, int onnenapilaKerroin, int tuleekoOnnenapila) {
