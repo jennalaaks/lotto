@@ -1,7 +1,7 @@
 /** Ohjelma tarkistaa kuinka monta numeroa on oikein/v‰‰rin.*/
 
 public class tarkistaNumerot {
-	public static void lottorivinTarkistus(int[] numerot, int[] lottoNumerot, int onnenapila, int oikeaOnnenapila, double panos) {
+	public static double lottorivinTarkistus(int[] numerot, int[] lottoNumerot, int onnenapila, int oikeaOnnenapila, double panos) {
 		
 		System.out.print("\n");
 		System.out.println("Pelaamasi lottorivi: ");
@@ -56,42 +56,56 @@ public class tarkistaNumerot {
 			
 			System.out.print("\n");
 			
+			double voittosumma = 0;
+			
 			if(oikein == 0 || oikein == 12) {
 				if (onnenapila == oikeaOnnenapila) {
-					System.out.println("Voitit: " + ((panos * 125000) * 4) + " Ä");
+					voittosumma = (panos * 125000) * 4;
+					System.out.println("Voitit: " + voittosumma + " Ä");
 				} else {
-					System.out.println("Voitit: " + (panos * 125000) + " Ä");
+					voittosumma = (panos * 125000);
+					System.out.println("Voitit: " + voittosumma + " Ä");
 				}
 			} else if (oikein == 1 || oikein == 11) {
 				if (onnenapila == oikeaOnnenapila) {
-					System.out.println("Voitit: " + ((panos * 250) * 4) + " Ä");
+					voittosumma = (panos * 250) * 4;
+					System.out.println("Voitit: " + voittosumma + " Ä");
 				} else {
-					System.out.println("Voitit: " + (panos * 250) + " Ä");
+					voittosumma = (panos * 250);
+					System.out.println("Voitit: " + voittosumma + " Ä");
 				}
 			} else if (oikein == 2 || oikein == 10) {
 				if (onnenapila == oikeaOnnenapila) {
-					System.out.println("Voitit: " + ((panos * 25) * 4) + " Ä");
+					voittosumma = (panos * 25) * 4;
+					System.out.println("Voitit: " + voittosumma + " Ä");
 				} else {
-					System.out.println("Voitit: " + (panos * 25) + " Ä");
+					voittosumma = (panos * 25);
+					System.out.println("Voitit: " + voittosumma + " Ä");
 				}
 			} else if (oikein == 3 || oikein == 9) {
 				if (onnenapila == oikeaOnnenapila) {
-					System.out.println("Voitit: " + ((panos * 5) * 4) + " Ä");
+					voittosumma = (panos * 5) * 4;
+					System.out.println("Voitit: " + voittosumma + " Ä");
 				} else {
-					System.out.println("Voitit: " + (panos * 5) + " Ä");
+					voittosumma = (panos * 5) * 4;
+					System.out.println("Voitit: " + voittosumma + " Ä");
 				}
 			} else if (oikein == 4 || oikein == 8) {
 				if (onnenapila == oikeaOnnenapila) {
-					System.out.println("Voitit: " + ((panos * 1) * 4) + " Ä");
+					voittosumma = (panos * 1) * 4;
+					System.out.println("Voitit: " + voittosumma + " Ä");
 				} else {
-					System.out.println("Voitit: " + (panos * 1) + " Ä");
+					voittosumma = (panos * 1);
+					System.out.println("Voitit: " + voittosumma + " Ä");
 				}
 			} else {
 				if (onnenapila == oikeaOnnenapila) {
-					System.out.println("Voitit: " + ((panos * 1) * 4) + " Ä");
+					voittosumma = (panos * 1) * 4;
+					System.out.println("Voitit: " + voittosumma + " Ä");
 				} else {
 				System.out.println("Voitit: " + "0 Ä");
-				}
+				} 
 		}
+			return voittosumma;
 	}
 }

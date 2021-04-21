@@ -4,12 +4,16 @@
  */
 
 import java.util.Scanner;
+import java.io.PrintWriter;
 import java.util.Arrays;
+import java.io.FileNotFoundException;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 
 public class lotto {
 
 private static final Scanner lukija = new Scanner(System.in);
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		
 		/**Ohjeet ja pelin esittely.
 		 * K‰ytt‰j‰ valitsee arvotaanko numerot vai valitseeko k‰ytt‰j‰ itse.
@@ -84,7 +88,9 @@ private static final Scanner lukija = new Scanner(System.in);
 		
 		/** HintaLaskuri, laskee loton hinnan. */
 		System.out.print("\n");
-		hintaLaskuri(panos, onnenapilaKerroin, tuleekoOnnenapila);
+		
+		double hinta = hintaLaskuri(panos, onnenapilaKerroin, tuleekoOnnenapila);
+		
 		
 		/** Suoritetaan lottorivin arvonta.
 		 * Tulostetaan lottorivi ja j‰rjestell‰‰n lottoNumero taulukon arvot suuruusj‰rjestykseen.
@@ -111,16 +117,41 @@ private static final Scanner lukija = new Scanner(System.in);
 		 * tarkistetaan kuinka monta numeroa k‰ytt‰j‰ll‰ meni oikein tai v‰‰rin
 		 * ja voiton suuruus.
 		 */
-		tarkistaNumerot.lottorivinTarkistus(numerot, lottoNumerot, onnenapila, oikeaOnnenapila, panos);
+		double voittosumma = tarkistaNumerot.lottorivinTarkistus(numerot, lottoNumerot, onnenapila, oikeaOnnenapila, panos);
+		
+		kuitti(hinta, voittosumma);
+		
+		System.out.println(" ");
+		System.out.println("Kuitti tulostuu tiedostoon.");
 
 	}
 	
+	private static void kuitti(double hinta, double voittosumma) throws FileNotFoundException {
+
+		//luodaan kirjoittaja-olio, joka yhdistet‰‰n tiedostoon "tiedosto.txt"
+		PrintWriter kirjoittaja = new PrintWriter("kuitti.txt");
+		//kirjoittaja kirjoittaa/tulostaa merkkijonon mj sisallon tiedostoon "tiedosto.txt"
+		kirjoittaja.println("KUITTI");
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		LocalDateTime now = LocalDateTime.now();
+		kirjoittaja.println(dtf.format(now));
+		kirjoittaja.println(" ");
+		kirjoittaja.println("Loton hinta: " + hinta + " Ä");
+		kirjoittaja.println("Voitit: " + voittosumma + " Ä");
+		//suljetaan tiedosto
+		kirjoittaja.close();
+		
+	}
+
 	public static double hintaLaskuri(double panos, int onnenapilaKerroin, int tuleekoOnnenapila) {
+		
+		double hinta = panos;
 		
 		do {
 			
 		} while(tuleekoOnnenapila < 1 || tuleekoOnnenapila > 2);
 		if (tuleekoOnnenapila == 1) {
+			hinta = panos * 2;
 			double hintaLaskuriOnnenapilalla = panos * onnenapilaKerroin; /** Laskee hinnan panoksella ja onneapilalla */
 			System.out.println("Loton hinta: " + hintaLaskuriOnnenapilalla + " Ä");
 		}
@@ -130,7 +161,7 @@ private static final Scanner lukija = new Scanner(System.in);
 		}
 		System.out.println("_________________________________________________");
 		
-		return tuleekoOnnenapila;
+		return hinta;
 		
 	}
 
