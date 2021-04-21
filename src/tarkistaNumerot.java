@@ -56,6 +56,8 @@ public class tarkistaNumerot {
 			
 			System.out.print("\n");
 			
+			/** @voittosumma Tallentaa voittosumman.
+			 * @return Palauttaa voittosumman p‰‰ohjelmaan.*/
 			double voittosumma = 0;
 			
 			if(oikein == 0 || oikein == 12) {

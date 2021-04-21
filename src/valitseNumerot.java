@@ -56,13 +56,15 @@ public class valitseNumerot {
 				
 				numerot[i] = numero;
 			}
-			/** Tulostetaan k‰ytt‰j‰n valitsemat lottonumerot */
+			/** Tulostetaan k‰ytt‰j‰n valitsemat lottonumerot.*/
 			
 			System.out.println("Valitsemasi lottonumerot: ");
 			for (int i : numerot) {
 					System.out.print(i + " ");
 			}
 			System.out.println("");
+			
+			/** @return Palauttaa k‰ytt‰j‰n valitsemat lottonumerot p‰‰ohjelmaan.*/
 			return numerot;
 		}
 	}
