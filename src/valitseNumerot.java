@@ -1,8 +1,10 @@
 import java.util.Scanner;
 
+/** Tiedostossa k‰ytt‰j‰ valitsee numerot*/
 public class valitseNumerot {
 	
 		private static final Scanner lukija = new Scanner(System.in);
+		
 		/** K‰ytt‰j‰ valitsee lottorivin */
 		public static int[] lottorivi() {
 			/** Kysyt‰‰n k‰ytt‰j‰lt‰ luvut jotka ovat v‰lilt‰ 1 ja 24,
@@ -11,6 +13,7 @@ public class valitseNumerot {
 			 * @numerot Tallennetaan taulukkoon k‰ytt‰j‰n valitsemat numerot.
 			 * @numero Luodaan muuttuja johon tallennetaan numero.
 			 */
+			
 			int[] numerot = new int[12];
 			int numero;
 			
@@ -54,8 +57,8 @@ public class valitseNumerot {
 				
 				numerot[i] = numero;
 			}
-			/** Tulostetaan k‰ytt‰j‰n valitsemat lottonumerot. */
 			
+			/** Tulostetaan k‰ytt‰j‰n valitsemat lottonumerot. */
 			System.out.println("Valitsemasi lottonumerot: ");
 			for (int i : numerot) {
 					System.out.print(i + " ");

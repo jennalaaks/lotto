@@ -170,6 +170,7 @@ private static final Scanner lukija = new Scanner(System.in);
 		return hinta;
 		
 	}
+	
 	/** K‰ytt‰j‰ valitsee panoksen 1 Ä ja 5 Ä v‰lilt‰. */
 	public static double panos() {
 		 /** @panos Tallentaa k‰ytt‰j‰n panoksen.
@@ -186,6 +187,7 @@ private static final Scanner lukija = new Scanner(System.in);
 		
 		return panos;
 	}
+	
 	/** Arvotaan onnenapila. */
 	public static int onnenapila() {
 		/** K‰ytt‰j‰ voi halutessaan arpoa apilan uudelleen
@@ -213,6 +215,7 @@ private static final Scanner lukija = new Scanner(System.in);
 		/** @return Palauttaa onnenapilan arvon. */
 		return onnenapila;
 	}
+	
 	/** Tulostetaan kuitti tiedostoon. */
 	private static void kuitti(double hinta, double voittosumma) throws IOException { 
 		 /** @PrintWriter Luodaan kirjoittaja-olio, joka yhdistet‰‰n tiedostoon "kuitti.txt.
@@ -232,6 +235,7 @@ private static final Scanner lukija = new Scanner(System.in);
 		/** @kirjoittaja Suljetaan tiedoto. */
 		kirjoittaja.close();
 	}
+	
 	/** Tulostaa kuitin tiedostosta ohjelmaan */
 	private static void tulostaKuitti() throws FileNotFoundException {
 		/**Luodaan lukija-olio, jonka toimet kohdistetaan tiedostoon "tiedosto.txt". */

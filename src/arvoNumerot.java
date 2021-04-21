@@ -30,6 +30,7 @@ public class arvoNumerot {
 		return arvotut;
 		
 		}
+	
 	/** Arvotaan onnenapila. */
 	public static int arvoOnnenapila() {
 		/** Arvotaan onnenapila 1 ja 4 väliltä.

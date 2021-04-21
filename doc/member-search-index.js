@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"<Unnamed>","c":"valitseNumerot","l":"lottorivi()"},{"p":"<Unnamed>","c":"valitseNumerot","l":"valitseNumerot()","u":"%3Cinit%3E()"}];updateSearchResults();
